@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MapSize — Compare Region Sizes</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div id="toolbar">
+  <h1>MapSize</h1>
+  <div class="divider"></div>
+  <button id="draw-btn" class="btn btn-draw">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+    Draw Region
+  </button>
+  <button id="pick-btn" class="btn btn-pick">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+    Pick Region
+  </button>
+  <button id="clear-btn" class="btn btn-ghost">Clear All</button>
+
+  <div id="search-wrap">
+    <span id="search-icon">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+    </span>
+    <input id="search-input" type="text" placeholder="Search location…" autocomplete="off" spellcheck="false" />
+    <button id="search-clear" title="Clear">✕</button>
+    <div id="search-results"></div>
+  </div>
+</div>
+
+<div id="map"></div>
+<div id="shape-panel"></div>
+
+<div id="pick-popup">
+  <div id="pick-popup-header">Select a region to add</div>
+  <div id="pick-popup-body"></div>
+</div>
+
+<div id="draw-hint">
+  Click to place points &nbsp;·&nbsp; <kbd>dbl-click</kbd> to finish &nbsp;·&nbsp; <kbd>Esc</kbd> to cancel
+</div>
+<div id="pick-hint">
+  Click anywhere on the map to detect a region &nbsp;·&nbsp; <kbd>Esc</kbd> to cancel
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
